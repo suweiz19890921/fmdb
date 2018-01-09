@@ -8,6 +8,11 @@
 #import <sqlite3.h>
 #endif
 
+#if defined(SQLITE_HAS_CODEC)
+SQLITE_API int sqlite3_key(sqlite3 *db, const void *pKey, int nKey);
+SQLITE_API int sqlite3_rekey(sqlite3 *db, const void *pKey, int nKey);
+#endif
+
 @interface FMDatabase () {
     void*               _db;
     BOOL                _isExecutingStatement;
